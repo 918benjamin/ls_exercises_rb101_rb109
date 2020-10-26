@@ -35,7 +35,7 @@ Understand the problem
   - Input is case sensitive or insensitive?
 - mental model
   - Ask the user for their input. Create a range of numbers from 1
-    to their input integer. Sum or multiple all the numbers in that
+    to their input integer. Sum or multiply all the numbers in that
     range, depending on their other input.
 
 Examples / test cases
@@ -49,10 +49,35 @@ Data structures
 - input: strings
 - output: string
 - intermediate:
-  - integer input needs converting to integer for math
-  - Might end up ussing an array of values for the computation
+  - integer input as a string needs converting to integer for math
+  - Might end up using an array of values for the computation
 
 Algorithm
-- 
+- Ask the user for a number X
+  - New variable to store it, num X 
+- Ask the user how to compute the result X 
+  - New variable to store it, calcX 
+- Create a list of the numbers from 1 to num X 
+  - Iterate through each number appending it to the list X 
+- If calc is 's', sum the list of numbers
+- else if calc is 'p' multiply the numbers
+- print the result
 
 =end
+
+puts ">> Please enter an integer greater than 0:"
+num = gets.chomp.to_i
+
+puts ">> Enter 's' to compute the sum, 'p' to compute the product."
+calc = gets.chomp
+
+one_to_num = []
+(1..num).each { |i| one_to_num << i }
+
+if calc == 's'
+  puts "The sum of the integers between 1 and #{num} is #{one_to_num.inject(:+)}."
+elsif calc == 'p'
+  puts "The product of the integers between 1 and #{num} is #{one_to_num.inject(:*)}."
+else
+  puts "Sorry, only sum and product available."
+end
