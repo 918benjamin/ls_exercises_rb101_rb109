@@ -63,13 +63,33 @@ DIGITS = {
 #   value
 # end
 
+def string_to_integer(str, positive=true)
+  result = 0
+  places = str.length - 1
+  
+  str.chars.each do |char|
+    digit = (char.ord - 48) * 10**places
+    places -= 1
+    if positive
+      result += digit
+    else
+      result -= digit
+    end
+  end
+  result
+end
+
 # From the solution: 
 def string_to_signed_integer(string)
+  positive = true
+  str_arg = string
   case string[0]
-  when '-' then -string_to_integer(string[1..-1])
-  when '+' then string_to_integer(string[1..-1])
-  else          string_to_integer(string)
+  when '-'
+    str_arg = string[1..-1]
+    positive = false
+  when '+' then str_arg = string[1..-1]
   end
+  string_to_integer(str_arg, positive)
 end
 
 
