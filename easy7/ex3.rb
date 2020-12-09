@@ -33,27 +33,27 @@ Problem:
 # least two solutions.
 
 ### Option 1:
-def word_cap(str)
-  new_str = str.split
-  new_str.map! do |word|
-    word.downcase!
-    word[0] = (word[0].ord - 32).chr if word[0].ord.between?(97, 122)
-    word
-  end
-  new_str.join(' ')
-end
-
-
-### Option 2:
 # def word_cap(str)
 #   new_str = str.split
 #   new_str.map! do |word|
-#     word.downcase.chars.each_with_index do |char, index|
-#       char.upcase! if (index == 0 && char =~ /[A-Za-z]/)
-#     end.join
+#     word.downcase!
+#     word[0] = (word[0].ord - 32).chr if word[0].ord.between?(97, 122)
+#     word
 #   end
 #   new_str.join(' ')
 # end
+
+
+### Option 2:
+def word_cap(str)
+  new_str = str.split
+  new_str.map! do |word|
+    word.downcase.chars.each_with_index do |char, index|
+      char.upcase! if index == 0
+    end.join
+  end
+  new_str.join(' ')
+end
 
 # Test cases
 p word_cap('four score and seven') == 'Four Score And Seven'
