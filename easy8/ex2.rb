@@ -18,7 +18,20 @@ Do you walk your blue dog quickly? That's hilarious!
 
 
 =end
+def prompt(str)
+  print "Enter a #{str}: "
+end
 
+prompt("noun")
+noun = gets.chomp
 
+prompt("verb")
+verb = gets.chomp
 
-# Test cases
+prompt("adjective")
+adj = gets.chomp
+
+prompt("adverb")
+adverb = gets.chomp
+
+puts "So you're saying that a #{adj} #{noun} can #{verb} #{adverb} more than me?!"
