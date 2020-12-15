@@ -14,10 +14,15 @@ center_of('x') == 'x'
 
 =end
 
+def center_of(str)
+  length = str.length
+  length.even? ? str[((length - 1) / 2), 2] : str[(length - 1) / 2]
+end
+
 
 # Test cases
-center_of('I love ruby') == 'e'
-center_of('Launch School') == ' '
-center_of('Launch') == 'un'
-center_of('Launchschool') == 'hs'
-center_of('x') == 'x'
+p center_of('I love ruby') == 'e'
+p center_of('Launch School') == ' '
+p center_of('Launch') == 'un'
+p center_of('Launchschool') == 'hs'
+p center_of('x') == 'x'
