@@ -25,15 +25,39 @@ palindromes('knitting cassettes') == [
 
 =end
 
+def palindrome?(str)
+  return false if str.length == 1
+  str.reverse == str
+end
+
+def leading_substrings(str, length, start_index)
+  sub_strs = []
+  1.upto(length) do |stop_index|
+    sub_str = str[start_index, stop_index]
+    sub_strs << sub_str if palindrome?(sub_str)
+  end
+  sub_strs
+end
+
+def palindromes(str)
+  sub_strs = []
+  length = str.length
+  length.times do |start_index|
+    sub_strs.concat(leading_substrings(str, length, start_index))
+    length -= 1
+  end
+
+  sub_strs
+end
 
 # Test cases
-palindromes('abcd') == []
-palindromes('madam') == ['madam', 'ada']
-palindromes('hello-madam-did-madam-goodbye') == [
+p palindromes('abcd') == []
+p palindromes('madam') == ['madam', 'ada']
+p palindromes('hello-madam-did-madam-goodbye') == [
   'll', '-madam-', '-madam-did-madam-', 'madam', 'madam-did-madam', 'ada',
   'adam-did-mada', 'dam-did-mad', 'am-did-ma', 'm-did-m', '-did-', 'did',
   '-madam-', 'madam', 'ada', 'oo'
 ]
-palindromes('knitting cassettes') == [
+p palindromes('knitting cassettes') == [
   'nittin', 'itti', 'tt', 'ss', 'settes', 'ette', 'tt'
 ]
