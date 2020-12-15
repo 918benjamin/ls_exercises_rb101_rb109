@@ -19,9 +19,59 @@ substrings('abcde') == [
 
 =end
 
+### My solution
+def leading_substrings(str, length, start_index)
+  sub_strs = []
+  1.upto(length) do |stop_index|
+    sub_strs << str[start_index, stop_index]
+  end
+  sub_strs
+end
+
+def substrings(str)
+  sub_strs = []
+  length = str.length
+  length.times do |start_index|
+    sub_strs.concat(leading_substrings(str, length, start_index))
+    length -= 1
+  end
+
+  sub_strs
+end
+
+### LS Solution
+# def leading_substrings(string)
+#   result = []
+#   0.upto(string.size - 1) do |index|
+#     result << string[0..index]
+#   end
+#   result
+# end
+
+### Original
+# def substrings(string)
+#   results = []
+#   (0...string.size).each do |start_index|
+#     this_substring = string[start_index..-1]
+#     results.concat(leading_substrings(this_substring))
+#   end
+#   results
+# end
+
+### My refactoring / testing
+# def substrings(string)
+#   results = []
+#   string.size.times do |start_index|
+#     this_substring = string[start_index..-1]
+#     results << leading_substrings(this_substring)
+#   end
+#   results.flatten
+# end
+
+
 
 # Test cases
-substrings('abcde') == [
+p substrings('abcde') == [
   'a', 'ab', 'abc', 'abcd', 'abcde',
   'b', 'bc', 'bcd', 'bcde',
   'c', 'cd', 'cde',
