@@ -9,10 +9,19 @@ Example:
 greetings(['John', 'Q', 'Doe'], { title: 'Master', occupation: 'Plumber' })
 => Hello, John Q Doe! Nice to have a Master Plumber around.
 
+Problem
+- input: array and hash
+  - array has 2 or more elements that make up a name (missing spaces)
+  - hash has two keys, :title and :occupation with values
+- output: return a greeting using the full name and their title and occupation
 
 =end
 
+def greetings(arr, hsh)
+  "Hello, #{arr.join(' ')}!"\
+  " Nice to have a #{hsh[:title]} #{hsh[:occupation]} around."
+end
 
 # Test cases
-greetings(['John', 'Q', 'Doe'], { title: 'Master', occupation: 'Plumber' })
-=> Hello, John Q Doe! Nice to have a Master Plumber around.
+p greetings(['John', 'Q', 'Doe'], { title: 'Master', occupation: 'Plumber' })
+# => Hello, John Q Doe! Nice to have a Master Plumber around.
