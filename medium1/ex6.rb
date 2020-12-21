@@ -71,36 +71,43 @@ def minilang(str)
   end
 end
 
+### Further Exploration
+# Try writing a minilang program to evaluate and print the result of this expression:
+# (3 + (4 * 5) - 7) / (5 % 3)
+
+minilang('3 PUSH 5 MOD PUSH 3 PUSH 7 PUSH 4 PUSH 5 MULT SUB ADD DIV PRINT')
+# 8
+
 
 # Test cases
-minilang('PRINT')
+# minilang('PRINT')
 # 0
 
-minilang('5 PUSH 3 MULT PRINT')
+# minilang('5 PUSH 3 MULT PRINT')
 # 15
 
-minilang('5 PRINT PUSH 3 PRINT ADD PRINT')
+# minilang('5 PRINT PUSH 3 PRINT ADD PRINT')
 # 5
 # 3
 # 8
 
-minilang('5 PUSH POP PRINT')
+# minilang('5 PUSH POP PRINT')
 # 5
 
-minilang('3 PUSH 4 PUSH 5 PUSH PRINT ADD PRINT POP PRINT ADD PRINT')
+# minilang('3 PUSH 4 PUSH 5 PUSH PRINT ADD PRINT POP PRINT ADD PRINT')
 # 5
 # 10
 # 4
 # 7
 
-minilang('3 PUSH PUSH 7 DIV MULT PRINT ')
+# minilang('3 PUSH PUSH 7 DIV MULT PRINT ')
 # 6
 
-minilang('4 PUSH PUSH 7 MOD MULT PRINT ')
+# minilang('4 PUSH PUSH 7 MOD MULT PRINT ')
 # 12
 
-minilang('-3 PUSH 5 SUB PRINT')
+# minilang('-3 PUSH 5 SUB PRINT')
 # 8
 
-minilang('6 PUSH')
+# minilang('6 PUSH')
 # (nothing printed; no PRINT commands)
