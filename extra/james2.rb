@@ -10,7 +10,7 @@ def weird_case(str)
       char
     elsif flip
       flip = false
-      char.upcase!
+      char.upcase
     else
       flip = true
       char
