@@ -38,6 +38,17 @@ of freedom -- and that government of the people, by
 the people, for the people, shall not perish from the
 earth.
 
+The longest sentence in the above text is the last sentence; it is 86 words long.
+(Note that each -- counts as a word.)
+
+Another Example
+
+Download the book at http://www.gutenberg.org/cache/epub/84/pg84.txt, and run
+your program on this file.
+
+The longest sentence in this book is 157 words long.
+
+
 
 =end
 
