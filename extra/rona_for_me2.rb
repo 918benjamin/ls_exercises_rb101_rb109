@@ -68,11 +68,11 @@ If no block is given an enumerator is returned.
 
 # array = [1, 2, 3, 4, 2, 2, 1, 4, 4]
 
-def find_suspect(array)
-  groups_hsh = array.group_by { |number| array.count(number) }
-  min = groups_hsh.keys.min
-  groups_hsh[min].uniq.length == 1 ? groups_hsh[min][0] : nil
-end
+# def find_suspect(array)
+#   groups_hsh = array.group_by { |number| array.count(number) }
+#   min = groups_hsh.keys.min
+#   groups_hsh[min].uniq.length == 1 ? groups_hsh[min][0] : nil
+# end
 
 # def find_suspect(arr)
 #   uniq_nums = arr.sort_by { |num| arr.count(num) }.uniq
@@ -92,6 +92,22 @@ end
 #   end
 #   result
 # end
+
+def find_suspect(num_ar)
+  count = num_ar.tally
+
+  sorted_ar = count.sort_by { |key, value| value }
+
+  count.select! do |key, value|
+    sorted_ar[0][1] == value
+  end
+
+  if count.length == 1
+    count.keys[0]
+  else
+    nil
+  end
+end
 
 
 # Test cases
