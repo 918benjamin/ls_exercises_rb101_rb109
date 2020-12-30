@@ -14,8 +14,11 @@ Disregard Daylight Savings and Standard Time and other complications.
 Examples:
 time_of_day(0) == "00:00"
 time_of_day(-3) == "23:57"
+00:00 == 24:00
+24:00 - 3 is 23:57 (24 - 1 and 60 - 3)
 time_of_day(35) == "00:35"
 time_of_day(-1437) == "00:03"
+
 time_of_day(3000) == "02:00"
 time_of_day(800) == "13:20"
 time_of_day(-4231) == "01:29"
@@ -44,8 +47,10 @@ Algorithm
 =end
 
 require 'pry'
+require 'pry-byebug'
 
 def time_of_day(mins)
+  binding.pry
   arr = ['00', '00']
   hrs = mins / 60
   mins_remain = mins % 60
@@ -60,9 +65,11 @@ def time_of_day(mins)
 
       if hrs < 9
         arr[0] = '0' + hrs.to_s
+      else
+        arr[0] = hrs.to_s
       end
 
-      arr[0] = hrs.to_s
+      
 
     elsif mins_remain < 9
       arr[1] = '0' + mins_remain.to_s
@@ -76,12 +83,12 @@ end
 
 
 # Test cases
-p time_of_day(0) #== "00:00"
-p time_of_day(3) #== "00:03"
+# p time_of_day(0) == "00:00"
+# p time_of_day(3) == "00:03"
 # p time_of_day(-3) == "23:57"
-p time_of_day(35) # == "00:35"
+# p time_of_day(35)  == "00:35"
 # p time_of_day(-1437) == "00:03"
-p time_of_day(3000) #== "02:00"
+# p time_of_day(3000) == "02:00"
 p time_of_day(800) #== "13:20"
 # p time_of_day(-4231) == "01:29"
-p time_of_day(1440) #== '00:00'
+# p time_of_day(1440) == '00:00'
