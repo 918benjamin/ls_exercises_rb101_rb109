@@ -48,10 +48,33 @@ your program on this file.
 
 The longest sentence in this book is 157 words long.
 
-
+Problem:
+input: string (text of multiple sentences)
+output: string (longest sentence from the given string) and integer (number of words in longest sentence)
+- period, exclamation point, question mark define a sentence
+- 
 
 =end
 
+def longest_sentence(text_file)
+  text = File.read(text_file)
+  sentences = text.split(/\.|\?|!/)
+  max_length = 0
+  max_index = nil
+  sentences.each_with_index do |sentence, index|
+    word_count = sentence.split.length
+    if word_count > max_length
+      max_length = word_count
+      max_index = index
+    end
+  end
+  puts "At #{max_length} words, the longest sentence is:\n#{sentences[max_index].strip}"
+end
 
 
 # Test cases
+longest_sentence("txt1.txt")
+# prints "It is rather..from the earth" and 86 words
+
+longest_sentence("txt2.txt")
+# prints
