@@ -62,7 +62,7 @@ def bubble_sort!(arr)
   loop do
     swaps = false
     arr.each_with_index do |elem, index|
-      next if index == arr.length
+      break if index == arr.length
       if (elem <=> arr[index + 1]) == 1
         arr[index], arr[index + 1] = arr[index + 1], arr[index]
         swaps = true
