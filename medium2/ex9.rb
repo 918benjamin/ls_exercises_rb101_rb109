@@ -47,7 +47,7 @@ Algorithm:
 - initialize a swaps variable to false
 - loop (do while)
   - iterate through all the elements with the index
-    - go to the next iteration if index == arr.length
+    - break early if index == arr.length
     - compare element at current index to element at index + 1
       - if the comparison returns 1, then swap
         - arr[index], arr[index + 1] = arr[index + 1], arr[index]
