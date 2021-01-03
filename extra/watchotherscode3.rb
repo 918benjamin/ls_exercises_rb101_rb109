@@ -55,30 +55,29 @@ p max_sequence([-2, 1, -7, 4, -10, 2, 1, 5, 4]) == 12
 
 =end
 
-def max_sequence(arr)
-  return 0 if arr.empty?
-  subarrays = []
-  ends = arr.length
+# def max_sequence(arr)
+#   return 0 if arr.empty?
+#   subarrays = []
+#   ends = arr.length
 
-  arr.each_with_index do |int, index|
-    1.upto(ends) do |num|
-      subarrays << arr[index, num]
-    end
-   ends -= 1
-  end
+#   arr.each_with_index do |int, index|
+#     1.upto(ends) do |num|
+#       subarrays << arr[index, num]
+#     end
+#    ends -= 1
+#   end
 
-  sums = subarrays.map do |subarr|
-    subarr.inject(:+)
-  end
-  sum = sums.sort.reverse[0]
-  sum > 0 ? sum : 0
-end
+#   sums = subarrays.map do |subarr|
+#     subarr.inject(:+)
+#   end
+#   sum = sums.sort.reverse[0]
+#   sum > 0 ? sum : 0
+# end
 
-# Test cases
-p max_sequence([1, 2, 3, 4]) == 10
-p max_sequence([]) == 0
-p max_sequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]) == 6
-p max_sequence([11]) == 11
-p max_sequence([-32]) == 0
-p max_sequence([-2, 1, -7, 4, -10, 2, 1, 5, 4]) == 12
-
+# # Test cases
+# p max_sequence([1, 2, 3, 4]) == 10
+# p max_sequence([]) == 0
+# p max_sequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]) == 6
+# p max_sequence([11]) == 11
+# p max_sequence([-32]) == 0
+# p max_sequence([-2, 1, -7, 4, -10, 2, 1, 5, 4]) == 12
