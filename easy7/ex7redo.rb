@@ -26,7 +26,7 @@ Approach:
 def show_multiplicative_average(arr)
   mult_ints = arr.inject(:*)
   result = mult_ints / arr.length.to_f
-  puts "The result is %0.2f" % result
+  puts "The result is %0.3f" % result
 end
 
 # Test cases
